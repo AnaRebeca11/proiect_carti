@@ -1,47 +1,39 @@
-# 📚 Proiect Cărți
+# Proiect Cărți – Mini Aplicație PHP + MySQL
 
-Aplicație web pentru gestionarea cărților citite, în progres sau de citit, construită cu PHP, MySQL, HTML, CSS și JavaScript.
-
----
-
-## 🚀 Funcționalități
-
-- Adăugare carte nouă
-- Actualizare progres (pagina curentă)
-- Ștergere carte
-- Vizualizare listă de cărți
+O aplicație simplă care permite gestionarea unei liste de cărți: adăugare, vizualizare și urmărirea progresului de lectură. Scrisă în PHP cu stilizare CSS și conectare la o bază de date MySQL.
 
 ---
 
-## 🛠️ Tehnologii folosite
+## Funcționalități
 
-- PHP + MySQL (bază de date relațională)
-- HTML, CSS (stil simplu, culoare deschisă, responsive)
-- JavaScript (pentru funcționalitate interactivă)
-
----
-
-## 🔧 Instalare locală (localhost)
-
-1. Instalează [XAMPP](https://www.apachefriends.org/index.html) sau alt server PHP.
-2. Clonează sau descarcă acest repository.
-3. Copiază proiectul în `htdocs/` (folderul public al serverului).
-4. Creează baza de date MySQL folosind fișierul `books_db.sql`.
-5. Redenumește `db.example.php` în `db.php` și completează datele tale de conectare.
-6. Accesează `http://localhost/proiect_carti` în browser.
+- Afișează o listă de cărți cu titlu, autor, stadiu (citită / în progres / de citit) și pagina curentă
+- Permite adăugarea de cărți printr-un formular (`add_book.php`)
+- Stochează datele într-o bază de date MySQL (`books_db`)
+- Design simplu, stilizat cu `styles.css`
 
 ---
 
-## 🔐 Fișiere sensibile
+## Tehnologii folosite
 
-- Fișierul `db.php` (cu datele reale de conectare) **nu este inclus în acest repository** din motive de securitate.
-- Este inclus în `.gitignore`.
-
----
-
-## 💡 Notă
-
-Acest proiect este realizat ca exercițiu de învățare și organizare personală.
-Contribuțiile, feedback-ul sau sugestiile sunt binevenite!
+- **PHP** – pentru partea de server
+- **MySQL** – pentru stocarea datelor
+- **HTML/CSS** – pentru interfața utilizator
+- **XAMPP sau alt server local** – pentru rularea aplicației
 
 ---
+
+
+
+## Configurarea bazei de date
+
+1. Creează o bază de date numită `books_db` în MySQL (poți folosi phpMyAdmin sau MySQL Workbench).
+2. Creează tabelul `books` cu următoarea structură:
+
+```sql
+CREATE TABLE books (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255),
+  status ENUM('citita', 'in progres', 'de citit') DEFAULT 'de citit',
+  pagina_curenta INT DEFAULT 0
+);
