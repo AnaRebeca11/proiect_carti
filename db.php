@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $db   = 'books_db';
-$user = '';
-$pass = '';
+$user = 'USERNAME_TAU';
+$pass = 'PAROLA_TA';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
